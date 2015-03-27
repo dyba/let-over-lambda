@@ -109,19 +109,4 @@
 ;; => Side effects!
 ;;    5
 
-(comment ;; here is the macroexpansion of the nif above
-  ;; (macroexpand '(nif x "I'm positive!" "Zilch" "I'm negative :("))
-  (if (clojure.core/pos? x)
-    "I'm positive!"
-    (clojure.core/cond
-      (clojure.core/zero? x) "Zilch"
-      :else "I'm negative :(")))
 
-(comment ;; interestingly, Common Lisp expands to the following
-  ;; (macroexpand '(nif x "I'm positive!" "Zilch" "I'm negative :("))
-  "I'm positive!")
-
-(comment ;; using CL's macroexpand-1 gives a form that is much closer to
-  ;; Clojure's macroexpand
-  ;; TODO: show example here
-  )
